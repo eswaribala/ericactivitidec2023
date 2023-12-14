@@ -1,0 +1,6 @@
+package com.eric.billingapi.controllers;
+
+RestController
+public class BillingController {
+
+}

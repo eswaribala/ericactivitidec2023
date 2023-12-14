@@ -1,0 +1,5 @@
+package com.eric.billingapi.configurations;
+
+public class ApplicationSecurityConfig {
+
+}

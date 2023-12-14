@@ -19,4 +19,4 @@ spring:
     history-level: audit
 
 server:
-  port: 9080
+  port: 7070
