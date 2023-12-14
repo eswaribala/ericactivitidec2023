@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="model-2a45ad2c-cc69-4ac4-9316-b2e99354a051" name="loanapi" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="Process_4johXDB3P" name="loanapi" isExecutable="false">
+    <bpmn2:documentation />
+    <bpmn2:startEvent id="Event_1">
+      <bpmn2:outgoing>SequenceFlow_0ds97rh</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_0ds97rh" sourceRef="Event_1" targetRef="Task_02v7ied" />
+    <bpmn2:endEvent id="EndEvent_1by2cwr">
+      <bpmn2:incoming>SequenceFlow_1dlvasu</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1dlvasu" sourceRef="Task_02v7ied" targetRef="EndEvent_1by2cwr" />
+    <bpmn2:serviceTask id="Task_02v7ied" name="login" implementation="loginservice">
+      <bpmn2:incoming>SequenceFlow_0ds97rh</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1dlvasu</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_4johXDB3P">
+      <bpmndi:BPMNShape id="_BPMNShape_Event_2" bpmnElement="Event_1">
+        <dc:Bounds x="232" y="152" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ds97rh_di" bpmnElement="SequenceFlow_0ds97rh">
+        <di:waypoint x="268" y="170" />
+        <di:waypoint x="320" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1by2cwr_di" bpmnElement="EndEvent_1by2cwr">
+        <dc:Bounds x="472" y="152" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1dlvasu_di" bpmnElement="SequenceFlow_1dlvasu">
+        <di:waypoint x="420" y="170" />
+        <di:waypoint x="472" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_0vexqxw_di" bpmnElement="Task_02v7ied">
+        <dc:Bounds x="320" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

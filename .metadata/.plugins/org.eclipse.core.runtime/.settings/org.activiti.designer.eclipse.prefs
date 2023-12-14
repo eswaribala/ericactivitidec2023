@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+org.activiti.designer.preferences.activiticloudeditor.url=http\://172.25.224.1/
+org.activiti.designer.preferences.activiticloudeditor.username=modeler
+org.activiti.designer.preferences.editor.addDefaultContentToDiagrams=true
+org.activiti.designer.preferences.editor.addLabelsToNewSequenceFlows=true
