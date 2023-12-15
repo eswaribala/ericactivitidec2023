@@ -6,14 +6,15 @@
     <fullyQualifiedTypeName name="org.activiti.api.process.model.IntegrationContext"/>
     <fullyQualifiedTypeName name="org.activiti.api.process.runtime.connector.Connector"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="com.cts.sbactivitiapp.dtos.AppResponse"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="com.cts.sbactivitiapp.dtos.UserRegistrationRequest"/>
     <fullyQualifiedTypeName name="com.cts.sbactivitiapp.dtos.TaskCompletionRequest"/>
     <fullyQualifiedTypeName name="com.cts.sbactivitiapp.services.UserRegistrationService"/>
     <fullyQualifiedTypeName name="com.cts.sbactivitiapp.exceptions.UserRegistrationTaskException"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
 </qualifiedTypeNameHistroy>
