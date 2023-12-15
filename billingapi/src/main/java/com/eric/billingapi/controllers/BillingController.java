@@ -23,7 +23,7 @@ public class BillingController {
 	public ResponseEntity<?> startProcess(){
 	ProcessInstance processInstance=runTimeService.startProcessInstanceByKey("Process_qIZXOHi6h");	
 		
-		return ResponseEntity.status(HttpStatus.OK).body("Process Started......"+processInstance.getDeploymentId());
+		return ResponseEntity.status(HttpStatus.OK).body("Process Started......"+processInstance.getProcessDefinitionKey());
 	}
 
 }
