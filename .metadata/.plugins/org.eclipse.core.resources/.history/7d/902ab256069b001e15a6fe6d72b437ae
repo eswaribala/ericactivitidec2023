@@ -1,0 +1,5 @@
+package com.eric.billingapi.services;
+
+public class LoginService {
+
+}
