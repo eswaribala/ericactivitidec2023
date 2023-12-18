@@ -1,2 +1,2 @@
 helm install example ./activiti-cloud-full-example-8.1.0/activiti-cloud-full-example --version 8.1.0 
---set global.gateway.domain=a1f7b833e3a23492cbe1df33078b409b-330423084.us-east-1.elb.amazonaws.com --set global.keycloak.clientSecret=$(uuidgen) --set global.gateway.htt
+--set global.gateway.domain=<ExternalIP> --set global.keycloak.clientSecret=$(uuidgen) --set global.gateway.htt
