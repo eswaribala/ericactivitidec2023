@@ -4,7 +4,7 @@ metadata:
   name: gp2
 provisioner: kubernetes.io/aws-ebs
 parameters:
-  type: gp3 
+  type: gp2 
   zones: us-east-1d
   iopsPerGB: "10" 
   fsType: ext4
