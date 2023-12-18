@@ -1,0 +1,2 @@
+#aws iam attach-role-policy --role-name eksctl-rpscluster2023-nodegroup-ng-NodeInstanceRole-9UaOhArN4Eeo --policy-arn  arn:aws:iam::683059350352:policy/ebspolicy
+aws iam attach-role-policy --role-name <> --policy-arn <>:policy/ebspolicy
