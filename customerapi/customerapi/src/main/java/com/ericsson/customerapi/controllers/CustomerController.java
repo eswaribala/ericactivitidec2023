@@ -23,9 +23,9 @@ public class CustomerController {
 	@PostMapping(path = "/",
 			  consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
 	public ResponseEntity<?> getToken(@RequestBody String data){
-				log.info("Received....."+data);
-		this.keyCloakService.getKeyCloakToken();
-		return ResponseEntity.status(HttpStatus.OK).body("Done.....");
+				//log.info("Received....."+data);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(this.keyCloakService.getKeyCloakToken());
 	}
 
 }

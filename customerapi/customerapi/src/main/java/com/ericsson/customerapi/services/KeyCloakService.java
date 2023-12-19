@@ -32,7 +32,7 @@ public class KeyCloakService {
 	 @Value("${url}")
 	private String url; 
 	
-	public void getKeyCloakToken() {
+	public String getKeyCloakToken() {
 
 		//String encodeBytes = Base64.getEncoder().encodeToString(("testuser: password").getBytes());
 		
@@ -49,17 +49,18 @@ public class KeyCloakService {
 	    
 	       
 	       
-	       HttpEntity entity = new HttpEntity<>(map, headers);
+	       HttpEntity<MultiValueMap<String,String>> entity = new HttpEntity<>(map, headers);
             log.info(entity.getBody().toString());
 	    ResponseEntity<JsonNode> responseEntity = null;
         try {
             responseEntity = restTemplate.postForEntity(url, entity, JsonNode.class);
             log.info(responseEntity.toString());
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
        
-    
+        return responseEntity.getBody().toString();
 	     
 	}
 	
