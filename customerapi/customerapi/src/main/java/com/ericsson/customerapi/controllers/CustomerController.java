@@ -27,5 +27,14 @@ public class CustomerController {
 		
 		return ResponseEntity.status(HttpStatus.OK).body(this.keyCloakService.getKeyCloakToken());
 	}
+	
+	@PostMapping(path = "/start",
+			  consumes = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<?> startProcess(@RequestBody String data){
+				//log.info("Received....."+data);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(this.keyCloakService.startProcess());
+	}
+	
 
 }
