@@ -2,5 +2,19 @@
 <workingSetManager>
 <workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1702456659771_0" label="Java Main Sources" name="Java Main Sources"/>
 <workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1702456659803_1" label="Java Test Sources" name="Java Test Sources"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1702950738418_3" label="activiti-cloud-modeling-service-parent" name="activiti-cloud-modeling-service-parent">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/activiti-cloud-modeling-dependencies-tests" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/activiti-cloud-modeling-dependencies" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/activiti-cloud-services-modeling" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/activiti-cloud-services-modeling-core" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/activiti-cloud-services-modeling-jpa" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/activiti-cloud-services-modeling-rest" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/activiti-cloud-services-modeling-repository" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/activiti-cloud-services-modeling-api" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/activiti-cloud-services-modeling-service" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/activiti-cloud-services-modeling-api-impl" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/activiti-cloud-starter-modeling" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/activiti-cloud-acceptance-tests-modeling" type="4"/>
+</workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1702456667259_2" label="Window Working Set" name="Aggregate for window 1702456667259"/>
 </workingSetManager>
