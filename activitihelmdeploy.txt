@@ -1,2 +1,4 @@
-helm install example ./activiti-cloud-full-example-8.1.0/activiti-cloud-full-example --version 8.1.0 
---set global.gateway.domain=<ExternalIP> --set global.keycloak.clientSecret=$(uuidgen) --set global.gateway.http=false
+helm install example ./activiti-cloud-full-example-8.1.0/activiti-cloud-full-example --version 8.1.0 --set global.gateway.domain=abc.vhebconsulting.com --set global.keycloak.clientSecret=$(uuidgen) --set global.gateway.http=false
+
+
+helm upgrade example ./activiti-cloud-full-example-8.1.0/activiti-cloud-full-example --version 8.1.0 --set global.gateway.domain=abc.vhebconsulting.com --set global.keycloak.clientSecret=$(uuidgen) --set global.gateway.http=false
