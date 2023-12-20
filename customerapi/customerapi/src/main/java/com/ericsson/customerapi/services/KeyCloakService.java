@@ -32,9 +32,10 @@ public class KeyCloakService {
 	private String password;
 	 @Value("${url}")
 	private String url; 
-	 
+	 @Value("${processDefUrl}")
+	private String processDefUrl;
 	 @Value("${startUrl}")
-		private String startUrl;
+	private String startUrl;
 	 @Value("${processDefinitionKey}")
 	 private String processDefinitionKey;
 	 @Value("${payloadType}")
@@ -43,7 +44,7 @@ public class KeyCloakService {
 	 private String commandType;
 	 
 	 
-	 private String token;
+	public String kcAccessToken;
 	
 	public String getKeyCloakToken() {
 
@@ -70,8 +71,8 @@ public class KeyCloakService {
             responseEntity = restTemplate.postForEntity(url, entity, JsonNode.class);
             JsonNode jsonNode=responseEntity.getBody();
             JsonNode recdToken=jsonNode.get("access_token");     
-            token=recdToken.toString();
-            log.info("Token"+token);
+            kcAccessToken=recdToken.toString();
+            log.info("Token"+kcAccessToken);
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -81,12 +82,56 @@ public class KeyCloakService {
 	     
 	}
 	
+	public void getProcessDefinitions() {
+		
+		
+
+		HttpHeaders headers = new HttpHeaders();
+		
+	  headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+      headers.add("Accept", "application/json");
+      headers.add("Authorization", "Basic " + kcAccessToken);
+      
+   MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+   map.add("client_id",clientId);
+   map.add("grant_type",grantType);
+   map.add("username",userName);
+   map.add("password",password);
+   map.add("Authorization", "Bearer " + kcAccessToken);
+	     
+	   //  headers.set(HttpHeaders.AUTHORIZATION, "Bearer " + kcAccessToken);
+	     //headers.setBasicAuth("salaboy","password");
+	     
+		  
+	       log.info("Received Token"+kcAccessToken);  
+		    
+	     
+		    HttpEntity<MultiValueMap<String,String>>  entity = new HttpEntity<>(map,headers);
+
+		    log.info(entity.getBody().toString());
+		    ResponseEntity<String> responseEntity = null;
+	        try {
+	            responseEntity = restTemplate.
+	            		exchange(processDefUrl,HttpMethod.GET, entity, String.class);
+	            String jsonNode=responseEntity.getBody();
+	            System.out.println(jsonNode);
+	           // JsonNode recdToken=jsonNode.get("access_token");     
+	           // kcAccessToken=recdToken.toString();
+	            //log.info("Token"+kcAccessToken);
+	            
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+       
+	}
+
+	
 	public String startProcess() {
 				
 				HttpHeaders headers = new HttpHeaders();
 			       headers.setContentType(MediaType.APPLICATION_JSON);
 			       headers.add("Accept", "application/json");
-			       headers.set(HttpHeaders.AUTHORIZATION, "Bearer " + token);
+			       headers.set(HttpHeaders.AUTHORIZATION, "Bearer " + kcAccessToken);
 			       
 			       
 			       MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
@@ -113,10 +158,11 @@ public class KeyCloakService {
 		            e.printStackTrace();
 		        }
 		       
-		            return token;
+		            return kcAccessToken;
 	}
+}
 	
 	
 	
 
-}
+

@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  
+  customer-app:
+    image: customerapp
+    build:
+      context: ./
+      dockerfile: dockerfile
+    
+    deploy:
+      resources:
+        limits:
+          cpus: '8'
+          memory: 2048M
+        reservations:
+          cpus: '8'
+          memory: 2048M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 15
+        window: 50s
+    ports:
+      #- 8060-8070:7072
+       - 7070:7070
+       
+       
+    volumes:
+      - /data/compose-app
+    #networks:
+      #- boanetwork   
+    
+
+### put all the networks here
+#networks:
+  #boanetwork:
+networks: 
+  default: 
+    external: 
+      name:  docker-compose_default
+
+  

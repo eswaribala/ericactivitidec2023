@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,15 @@ public class CustomerController {
 				//log.info("Received....."+data);
 		
 		return ResponseEntity.status(HttpStatus.OK).body(this.keyCloakService.getKeyCloakToken());
+	}
+	
+	@PostMapping(path = "/processDef",
+			  consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+	@CrossOrigin("*")
+	public void getProcessDefinitions(@RequestBody String data){
+				//log.info("Received....."+data);
+		
+	        this.keyCloakService.getProcessDefinitions();
 	}
 	
 	@PostMapping(path = "/start",
