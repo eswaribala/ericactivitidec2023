@@ -1,0 +1,28 @@
+server:
+  port: 7070
+spring:
+  profiles:
+    active: dev
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://172.22.0.1/auth/realms/activiti
+          #jwk-set-uri: http://host.docker.internal:18080/auth/realms/Keycloak_Realm/protocol/openid-connect/certs
+
+module-name: mymodule
+api-version: 1.0z
+
+springdoc:
+  swagger-ui:
+    oauth:
+      clientId: activiti
+      grant_type: password
+      username: hradmin
+      password: password
+      clientSecret: 3721d01a-ee92-4910-85fd-e368b0969316
+  oAuthFlow:
+    authorizationUrl: http://172.22.0.1/auth/realms/activiti/protocol/openid-connect/auth
+    tokenUrl: http://172.22.0.1/auth/realms/activiti/protocol/openid-connect/token
+    use-pkce-with-authorization-code-grant: true

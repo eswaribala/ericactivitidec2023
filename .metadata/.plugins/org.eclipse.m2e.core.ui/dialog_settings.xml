@@ -2,6 +2,9 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="I:\activiti7\Activiti-develop\Activiti-develop\activiti-examples\activiti-api-basic-process-example"/>
+			<item value="G:\Local disk\ActivitiBPM\ServiceTaskJPADemo"/>
+			<item value="G:\Local disk\ActivitiBPM\SpringBootActivitiDemo\SpringBootActivitiDemo"/>
 			<item value="I:\activitieclipsews\customerapi\customerapi"/>
 			<item value="E:\software\A08\file\activiti7dec2023\activiti-cloud-modeling-service-develop\activiti-cloud-modeling-service-develop"/>
 			<item value="I:\activitieclipsews\billingapi"/>

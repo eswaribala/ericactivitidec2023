@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,13 +30,26 @@ public class CustomerController {
 		return ResponseEntity.status(HttpStatus.OK).body(this.keyCloakService.getKeyCloakToken());
 	}
 	
-	@PostMapping(path = "/processDef",
-			  consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
-	@CrossOrigin("*")
-	public void getProcessDefinitions(@RequestBody String data){
+	@GetMapping("/validatetoken")
+    @CrossOrigin("*")
+	public ResponseEntity<String> validateToken(@RequestHeader("Authorization") String authHeader){
+				//log.info("Received....."+data);
+		    String response="No response";
+	        try {
+				response=this.keyCloakService.checkValidity(authHeader);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        return ResponseEntity.status(HttpStatus.OK).body(response);
+	}
+	
+	@GetMapping("/processDef")
+    @CrossOrigin("*")
+	public void getProcessDefinitions(@RequestHeader("Authorization") String authHeader){
 				//log.info("Received....."+data);
 		
-	        this.keyCloakService.getProcessDefinitions();
+	        this.keyCloakService.getProcessDefinitions(authHeader);
 	}
 	
 	@PostMapping(path = "/start",
