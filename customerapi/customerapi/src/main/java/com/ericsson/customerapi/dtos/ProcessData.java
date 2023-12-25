@@ -1,4 +1,6 @@
 package com.ericsson.customerapi.dtos;
+import java.util.Map;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,5 +17,6 @@ public class ProcessData {
  private String  payloadType;
 
  private String commandType;
+ private Map<String, String> variables;
 
 }

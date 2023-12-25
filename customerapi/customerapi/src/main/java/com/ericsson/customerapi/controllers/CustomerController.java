@@ -46,18 +46,17 @@ public class CustomerController {
 	
 	@GetMapping("/processDef")
     @CrossOrigin("*")
-	public void getProcessDefinitions(@RequestHeader("Authorization") String authHeader){
+	public ResponseEntity<?> getProcessDefinitions(@RequestHeader("Authorization") String authHeader){
 				//log.info("Received....."+data);
 		
-	        this.keyCloakService.getProcessDefinitions(authHeader);
+		return ResponseEntity.status(HttpStatus.OK).body(this.keyCloakService.getProcessDefinitions(authHeader));
 	}
 	
-	@PostMapping(path = "/start",
-			  consumes = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<?> startProcess(@RequestBody String data){
+	@PostMapping("/start")
+	public ResponseEntity<?> startProcess(@RequestHeader("Authorization") String authHeader){
 				//log.info("Received....."+data);
 		
-		return ResponseEntity.status(HttpStatus.OK).body(this.keyCloakService.startProcess());
+		return ResponseEntity.status(HttpStatus.OK).body(this.keyCloakService.startProcess(authHeader));
 	}
 	
 

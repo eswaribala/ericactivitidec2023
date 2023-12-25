@@ -87,7 +87,7 @@ public class KeyCloakService {
 	        return getUserInfo(token);
 	    }
 
-	public void getProcessDefinitions(String token) {
+	public String getProcessDefinitions(String token) {
 		
 		
 
@@ -111,43 +111,38 @@ public class KeyCloakService {
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
+        return responseEntity.getBody().toString();
        
 	}
 
 	
-	public String startProcess() {
+	public String startProcess(String token) {
 				
-				HttpHeaders headers = new HttpHeaders();
-			       headers.setContentType(MediaType.APPLICATION_JSON);
-			       headers.add("Accept", "application/json");
-			       headers.set(HttpHeaders.AUTHORIZATION, "bearer " + kcAccessToken);
-			       
-			       
-			       MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-				    map.add("processDefinitionKey",processDefinitionKey);
-				    map.add("payloadType",payloadType);
-				    map.add("commandType",commandType);
-				    map.add("variables",null);			       
-				    map.add("client_id",clientId);
-				    map.add("grant_type",grantType);
-				    map.add("username",userName);
-				    map.add("password",password);
-			       HttpEntity<MultiValueMap<String,String>> entity = new HttpEntity<>(map, headers);
-		            log.info(entity.getBody().toString());
-		            
-			    ResponseEntity<JsonNode> responseEntity = null;
-		        try {
-		            responseEntity = restTemplate.postForEntity(startUrl, entity, JsonNode.class);
-		           // JsonNode jsonNode=responseEntity.getBody();
-		          //  JsonNode recdToken=jsonNode.get("access_token");     
-		            //token=recdToken.toString();
-		            log.info("Process Created");
-		            
-		        } catch (Exception e) {
-		            e.printStackTrace();
-		        }
-		       
-		            return kcAccessToken;
+		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+        headers.add("Authorization", token);
+        headers.add("Content-Type", "application/json");
+       ProcessData processData = new ProcessData();
+       processData.setProcessDefinitionKey(processDefinitionKey);
+       processData.setPayloadType(payloadType);
+       processData.setCommandType(commandType);
+       processData.setVariables(null);
+	   
+       HttpEntity entity = new HttpEntity<>(processData, headers);
+        log.info(entity.getBody().toString());
+        
+	    ResponseEntity<JsonNode> responseEntity = null;
+        try {
+            responseEntity = restTemplate.postForEntity(startUrl, entity, JsonNode.class);
+           // JsonNode jsonNode=responseEntity.getBody();
+          //  JsonNode recdToken=jsonNode.get("access_token");     
+            //token=recdToken.toString();
+            log.info("Process Created");
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       
+            return responseEntity.getBody().toString();
 	}
 	
 	   private String getUserInfo(String token) {
